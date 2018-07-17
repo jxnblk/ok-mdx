@@ -7,13 +7,14 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs",
+    "start": "./cli.js docs -op 8989",
     "test": "./cli.js"
   },
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
   "dependencies": {
+    "@mdx-js/loader": "^0.14.0",
     "@mdx-js/mdx": "^0.14.0",
     "@mdx-js/tag": "^0.14.0",
     "babel-core": "^6.26.3",
@@ -23,6 +24,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.4.1",
     "connect-history-api-fallback": "^1.5.0",
+    "get-port": "^3.2.0",
     "koa-connect": "^2.0.1",
     "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
@@ -40,6 +42,7 @@
     "superbox": "^1.0.6",
     "update-notifier": "^2.5.0",
     "webpack": "^4.16.1",
-    "webpack-serve": "^2.0.2"
+    "webpack-serve": "^2.0.2",
+    "ws": "^5.2.2"
   }
 }
