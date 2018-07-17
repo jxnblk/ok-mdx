@@ -7,7 +7,7 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs -op 8989",
+    "start": "./cli.js docs -o",
     "test": "./cli.js"
   },
   "keywords": [],
@@ -43,6 +43,7 @@
     "update-notifier": "^2.5.0",
     "webpack": "^4.16.1",
     "webpack-serve": "^2.0.2",
+    "webpack-serve-overlay": "^0.2.2",
     "ws": "^5.2.2"
   }
 }

@@ -52,6 +52,7 @@ const dirname = path.resolve(dir || cmd)
 
 const opts = Object.assign({
   dirname,
+  port: 8080,
   title: 'ok-mdx',
 }, config, cli.flags)
 
