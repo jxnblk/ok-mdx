@@ -7,12 +7,20 @@ mdx docs
 
 - [-] UI
 - [ ] custom css-in-js
-- [ ] Fixed/scrollable sidebar
 - [ ] Default MDX scope
 - [ ] custom Provider
 - [ ] make webpack-serve-overlay work
-- [ ] disconnected message screen
+- [ ] menu button
+- [ ] empty state
+- [ ] socket actions
+- [ ] spawn touch
+- [ ] autosave indicator?
+- [ ] clean up comments
 
+- [x] disconnected message screen
+- [x] window focus state
+- [x] allow editor updates
+- [x] Fixed/scrollable sidebar
 - [x] react-ace
 - [x] Directory Listing
 - [x] DefaultProvider
