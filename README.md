@@ -11,6 +11,7 @@ mdx docs
 - [ ] Default MDX scope
 - [ ] custom Provider
 - [ ] make webpack-serve-overlay work
+- [ ] disconnected message screen
 
 - [x] react-ace
 - [x] Directory Listing
