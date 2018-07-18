@@ -7,7 +7,7 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs -op 8989",
+    "start": "./cli.js docs -op 8989 --vim",
     "test": "./cli.js"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "brace": "^0.11.1",
     "chalk": "^2.4.1",
     "connect-history-api-fallback": "^1.5.0",
     "get-port": "^3.2.0",
@@ -29,15 +30,14 @@
     "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
     "pkg-conf": "^2.1.0",
-    "prismjs": "^1.15.0",
     "progress-bar-webpack-plugin": "^1.11.0",
     "raw-loader": "^0.5.1",
     "react": "^16.4.1",
+    "react-ace": "^6.1.4",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-live": "^1.11.0",
     "react-router-dom": "^4.3.1",
-    "react-simple-code-editor": "^0.4.2",
     "styled-components": "^3.3.3",
     "superbox": "^1.0.6",
     "update-notifier": "^2.5.0",
