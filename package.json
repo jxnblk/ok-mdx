@@ -7,7 +7,7 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs -op 8989 --vim",
+    "start": "./cli.js docs -p 8989 --vim",
     "test": "./cli.js"
   },
   "keywords": [],
