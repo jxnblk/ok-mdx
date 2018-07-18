@@ -10,13 +10,13 @@ mdx docs
 - [ ] Default MDX scope
 - [ ] custom Provider
 - [ ] make webpack-serve-overlay work
-- [ ] menu button
 - [ ] empty state
 - [ ] socket actions
 - [ ] spawn touch
 - [ ] autosave indicator?
 - [ ] clean up comments
 
+- [x] menu button
 - [x] disconnected message screen
 - [x] window focus state
 - [x] allow editor updates

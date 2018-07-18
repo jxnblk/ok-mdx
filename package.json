@@ -7,7 +7,7 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs -p 8989 --vim",
+    "start": "./cli.js docs -o --vim",
     "test": "./cli.js"
   },
   "keywords": [],
@@ -38,6 +38,7 @@
     "react-dom": "^16.4.1",
     "react-live": "^1.11.0",
     "react-router-dom": "^4.3.1",
+    "reline": "^1.0.0-beta.3",
     "styled-components": "^3.3.3",
     "superbox": "^1.0.6",
     "update-notifier": "^2.5.0",
