@@ -7,7 +7,7 @@
     "mdx": "./cli.js"
   },
   "scripts": {
-    "start": "./cli.js docs -o",
+    "start": "./cli.js docs -op 8989",
     "test": "./cli.js"
   },
   "keywords": [],
