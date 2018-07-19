@@ -12,9 +12,9 @@ mdx docs
 - [ ] socket actions
 - [ ] spawn touch
 - [ ] autosave indicator?
-- [ ] clean up comments
 - [ ] make webpack-serve-overlay work with require.context
 
+- [x] clean up comments
 - [x] custom css-in-js (isocss)
 - [x] menu button
 - [x] disconnected message screen
