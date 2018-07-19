@@ -5,7 +5,6 @@
 mdx docs
 ```
 
-- [ ] validate before write?
 - [ ] directory UI
 - [ ] logo
 - [ ] disconnected UI
@@ -13,9 +12,8 @@ mdx docs
 - [ ] empty state
 - [ ] socket actions
 - [ ] spawn touch
-- [ ] autosave indicator?
-- [ ] make webpack-serve-overlay work with require.context
 
+- [x] validate before write?
 - [x] custom Provider
 - [x] clean up comments
 - [x] custom css-in-js (isocss)
