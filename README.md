@@ -9,8 +9,8 @@ mdx docs
 - [ ] custom css-in-js
 - [ ] Default MDX scope
 - [ ] custom Provider
-- [ ] make webpack-serve-overlay work
 - [ ] empty state
+- [ ] make webpack-serve-overlay work
 - [ ] socket actions
 - [ ] spawn touch
 - [ ] autosave indicator?
