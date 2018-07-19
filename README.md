@@ -5,15 +5,18 @@
 mdx docs
 ```
 
-- [-] UI
+- [ ] validate before write?
+- [ ] directory UI
+- [ ] logo
+- [ ] disconnected UI
 - [ ] Default MDX scope
-- [ ] custom Provider
 - [ ] empty state
 - [ ] socket actions
 - [ ] spawn touch
 - [ ] autosave indicator?
 - [ ] make webpack-serve-overlay work with require.context
 
+- [x] custom Provider
 - [x] clean up comments
 - [x] custom css-in-js (isocss)
 - [x] menu button
