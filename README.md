@@ -6,16 +6,16 @@ mdx docs
 ```
 
 - [-] UI
-- [ ] custom css-in-js
 - [ ] Default MDX scope
 - [ ] custom Provider
 - [ ] empty state
-- [ ] make webpack-serve-overlay work
 - [ ] socket actions
 - [ ] spawn touch
 - [ ] autosave indicator?
 - [ ] clean up comments
+- [ ] make webpack-serve-overlay work with require.context
 
+- [x] custom css-in-js (isocss)
 - [x] menu button
 - [x] disconnected message screen
 - [x] window focus state
