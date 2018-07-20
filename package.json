@@ -1,6 +1,6 @@
 {
   "name": "ok-mdx",
-  "version": "1.0.0-2",
+  "version": "1.0.0-3",
   "description": "",
   "main": "lib/dev.js",
   "bin": {
