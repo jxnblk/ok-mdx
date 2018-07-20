@@ -30,6 +30,7 @@ const cli = meow(`
 
     -o --open     Opens development server in default browser
     -p --port     Port for development server
+    --vim         Enable editor Vim mode
 
 `, {
   flags: {
@@ -40,6 +41,9 @@ const cli = meow(`
     port: {
       type: 'string',
       alias: 'p'
+    },
+    vim: {
+      type: 'boolean',
     },
   }
 })
