@@ -3,17 +3,22 @@ import Box from 'superbox'
 # Hello MDX
 
 <Box
-  fontSize={24}
+  fontSize={96}
   color='white'
   px={2}
-  py={[ 1 ]}
-  bg='lightgray'
+  py={[ 1, 3, 4, 5 ]}
+  bg='slateblue'
+  color='cyan'
   css={{
+    lineHeight: 1.5,
+    textDecoration: 'underline',
+    textDecorationStyle: 'wavy',
+    textDecorationColor: 'magenta',
     fontWeight: 'bold'
   }}>
   wow
 </Box>
 
 
-This is live updating in the browser
+This should live update in the browser when you edit the code on the right.
 
