@@ -15,4 +15,12 @@ touch docs/hello.mdx
 mdx docs
 ```
 
+<video
+  autoplay
+  loop
+  muted
+  playsinline
+  src='https://s3.amazonaws.com/jxnblk/ok-mdx.mp4'
+  style='max-width:100%'></video>
+
 [MDX]: https://github.com/mdx-js/mdx
