@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "./cli.js docs -o --vim",
+    "docs": "ok build docs -d site --static",
     "test": "./cli.js"
   },
   "keywords": [],
@@ -50,5 +51,11 @@
     "webpack-serve": "^2.0.2",
     "webpack-serve-overlay": "^0.2.2",
     "ws": "^5.2.2"
+  },
+  "devDependencies": {
+    "ok-cli": "^2.0.8"
+  },
+  "ok": {
+    "title": "ok-mdx"
   }
 }
