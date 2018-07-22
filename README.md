@@ -100,8 +100,8 @@ import { Flex, Box } from 'grid-styled'
 
 ok-mdx is only meant to be used for development. To export your MDX files, consider one of the following tools:
 
-- [Compositor x0][x0]
-- [Next.js][next.js]
+- [Compositor x0][x0]: great for creating documentation, blogs, static sites, or other small demos
+- [Next.js][next.js]: great for creating production-ready, server-side rendered React applications
 
 ## Related
 
