@@ -38,7 +38,7 @@ After installing ok-mdx, create a folder and an empty `.mdx` file with the follo
 mkdir docs && touch docs/hello.mdx
 ```
 
-Start ok-mdx with the following:
+Start the ok-mdx app:
 
 ```sh
 mdx docs --open
@@ -118,4 +118,4 @@ ok-mdx is only meant to be used for development. To export your MDX files, consi
 [JSX]: https://facebook.github.io/jsx/
 [grid-styled]: https://github.com/jxnblk/grid-styled
 [styled-components]: https://github.com/styled-components/styled-components
-[next.js]: https://github.com/zeit/next
+[next.js]: https://github.com/zeit/next.js
