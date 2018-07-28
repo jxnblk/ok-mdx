@@ -94,7 +94,7 @@ const baseConfig = {
 
 const start = async (opts = {}) => {
   const app = new Koa()
-  const dirname = path.dirname(opts.entry)
+  const dirname = opts.dirname || path.dirname(opts.entry)
   const hotPort = await getPort()
   const hotClient = {
     port: hotPort,
@@ -122,6 +122,15 @@ const start = async (opts = {}) => {
   baseConfig.plugins.push(
     new webpack.DefinePlugin(defs)
   )
+  /*
+  if (baseConfig.resolve.alias) {
+    const hotAlias = baseConfig.resolve.alias['webpack-hot-client/client']
+    if (!fs.existsSync(hotAlias)) {
+      const hotPath = path.dirname(require.resolve('webpack-hot-client/client'))
+      baseConfig.resolve.alias['webpack-hot-client/client'] = hotPath
+    }
+  }
+  */
 
   const config = typeof opts.config === 'function'
     ? opts.config(baseConfig)
