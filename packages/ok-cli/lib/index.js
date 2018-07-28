@@ -67,6 +67,12 @@ const config = {
   module: {
     rules
   },
+  resolve: {
+    modules: [
+      path.relative(process.cwd(), path.join(__dirname, '../node_modules')),
+      'node_modules'
+    ]
+  },
   plugins: [
     new HTMLPlugin({
       template
@@ -96,6 +102,11 @@ const start = async (opts = {}) => {
   }
 
   config.context = dirname
+
+  config.resolve.modules.push(
+    dirname,
+    path.join(dirname, 'node_modules')
+  )
 
   config.entry = [
     path.join(__dirname, './overlay.js'),
