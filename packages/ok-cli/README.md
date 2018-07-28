@@ -5,7 +5,7 @@ Hyperminimal dev server for React & [MDX][]
 
 - :zero: Zero config
 - :headphones: No plugins
-- :brain: Smart defaults
+- 🧠 Smart defaults
 - :atom_symbol: Render React or MDX
 - :fire: Blazing
 
