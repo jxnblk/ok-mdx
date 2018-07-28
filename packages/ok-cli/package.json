@@ -1,6 +1,6 @@
 {
   "name": "ok-cli",
-  "version": "3.0.0-3",
+  "version": "3.0.0-4",
   "description": "Hyperminimal development server for React & MDX",
   "main": "lib/index.js",
   "bin": {
