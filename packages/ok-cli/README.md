@@ -1,7 +1,7 @@
 
 # ok-cli
 
-<img src='https://s3.amazonaws.com/jxnblk/ok-cli.mp4' />
+<img src='https://s3.amazonaws.com/jxnblk/ok-cli.gif' />
 
 Hyperminimal dev server for React & [MDX][]
 
