@@ -116,10 +116,10 @@ const start = async (opts = {}) => {
   const port = opts.port || await getPort()
   app.use(middleware)
 
-  app.listen(port)
+  const server = app.listen(port)
   return new Promise((resolve) => {
     middleware.devMiddleware.waitUntilValid(() => {
-      resolve({ app, middleware, port })
+      resolve({ server, app, middleware, port })
     })
   })
 }
