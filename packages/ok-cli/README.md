@@ -1,6 +1,8 @@
 
 # ok-cli
 
+![](https://s3.amazonaws.com/jxnblk/ok-cli.mp4)
+
 Hyperminimal dev server for React & [MDX][]
 
 - :zero: Zero config
