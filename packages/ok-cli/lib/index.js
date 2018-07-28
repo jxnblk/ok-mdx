@@ -61,7 +61,7 @@ const template = ({
 ${HTMLPlugin.generateJSReferences(js, publicPath)}
 `
 
-const config = {
+const baseConfig = {
   stats: 'errors-only',
   mode: 'development',
   module: {
@@ -101,25 +101,31 @@ const start = async (opts = {}) => {
     logLevel: 'error'
   }
 
-  config.context = dirname
+  baseConfig.context = dirname
 
-  config.resolve.modules.push(
+  baseConfig.resolve.modules.push(
     dirname,
     path.join(dirname, 'node_modules')
   )
 
-  config.entry = [
+  baseConfig.entry = [
     path.join(__dirname, './overlay.js'),
     path.join(__dirname, './entry.js')
   ]
 
-  config.plugins.push(
-    new webpack.DefinePlugin({
-      OPTIONS: JSON.stringify(opts),
-      APP_FILENAME: JSON.stringify(opts.entry),
-      HOT_PORT: JSON.stringify(hotPort)
-    })
+  const defs = Object.assign({}, opts.globals, {
+    OPTIONS: JSON.stringify(opts),
+    APP_FILENAME: JSON.stringify(opts.entry),
+    HOT_PORT: JSON.stringify(hotPort)
+  })
+
+  baseConfig.plugins.push(
+    new webpack.DefinePlugin(defs)
   )
+
+  const config = typeof opts.config === 'function'
+    ? opts.config(baseConfig)
+    : baseConfig
 
   const middleware = await koaWebpack({
     config,
@@ -138,3 +144,4 @@ const start = async (opts = {}) => {
 }
 
 module.exports = start
+module.exports.config = baseConfig
