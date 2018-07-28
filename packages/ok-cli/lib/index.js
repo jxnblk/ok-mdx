@@ -88,12 +88,14 @@ const config = {
 
 const start = async (opts = {}) => {
   const app = new Koa()
-
+  const dirname = path.dirname(opts.entry)
   const hotPort = await getPort()
   const hotClient = {
     port: hotPort,
     logLevel: 'error'
   }
+
+  config.context = dirname
 
   config.entry = [
     path.join(__dirname, './overlay.js'),
