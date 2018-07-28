@@ -66,8 +66,8 @@ switch (cmd) {
     const dev = require('./lib/dev')
     log(`starting dev server (${dir || cmd})`)
     dev(opts)
-      .then(({ server }) => {
-        const { port } = server.options
+      .then(({ port, server }) => {
+        // const { port } = server.options
         const url = `http://localhost:${port}`
         log('dev server listening on', chalk.cyan(url))
         if (opts.open) open(url)

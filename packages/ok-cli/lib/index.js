@@ -113,12 +113,14 @@ const start = async (opts = {}) => {
     path.join(__dirname, './entry.js')
   ]
 
+  const globals = Object.assign({}, opts.globals, {
+    OPTIONS: JSON.stringify(opts),
+    APP_FILENAME: JSON.stringify(opts.entry),
+    HOT_PORT: JSON.stringify(hotPort),
+  })
+
   config.plugins.push(
-    new webpack.DefinePlugin({
-      OPTIONS: JSON.stringify(opts),
-      APP_FILENAME: JSON.stringify(opts.entry),
-      HOT_PORT: JSON.stringify(hotPort)
-    })
+    new webpack.DefinePlugin(globals)
   )
 
   const middleware = await koaWebpack({
