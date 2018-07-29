@@ -1,13 +1,14 @@
 {
   "name": "ok-cli",
-  "version": "3.0.0-2",
+  "version": "3.0.0-9",
   "description": "Hyperminimal development server for React & MDX",
-  "main": "lib/index.js",
+  "main": "index.js",
   "bin": {
     "ok": "./cli.js"
   },
   "scripts": {
     "start": "./cli.js docs/hello.mdx",
+    "build": "./cli.js build docs/hello.mdx",
     "help": "./cli.js",
     "test": "nyc ava"
   },

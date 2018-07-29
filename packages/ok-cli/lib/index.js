@@ -61,7 +61,7 @@ const template = ({
 ${HTMLPlugin.generateJSReferences(js, publicPath)}
 `
 
-const config = {
+const baseConfig = {
   stats: 'errors-only',
   mode: 'development',
   module: {
@@ -86,41 +86,52 @@ const config = {
         chalk.magenta(':percent'),
         chalk.gray(':elapseds :msg'),
       ].join(' '),
-      // summaryContent: chalk.magenta('[ok] done '),
       summary: false,
+      customSummary: () => {},
     })
   ]
 }
 
-const start = async (opts = {}) => {
-  const app = new Koa()
-  const dirname = path.dirname(opts.entry)
-  const hotPort = await getPort()
-  const hotClient = {
-    port: hotPort,
-    logLevel: 'error'
-  }
+const createConfig = (opts = {}) => {
+  const dirname = opts.dirname || path.dirname(opts.entry)
+  baseConfig.context = dirname
 
-  config.context = dirname
-
-  config.resolve.modules.push(
+  baseConfig.resolve.modules.push(
     dirname,
     path.join(dirname, 'node_modules')
   )
 
-  config.entry = [
-    path.join(__dirname, './overlay.js'),
+  baseConfig.entry = [
     path.join(__dirname, './entry.js')
   ]
 
-  const globals = Object.assign({}, opts.globals, {
+  const defs = Object.assign({}, opts.globals, {
     OPTIONS: JSON.stringify(opts),
     APP_FILENAME: JSON.stringify(opts.entry),
     HOT_PORT: JSON.stringify(hotPort),
   })
 
-  config.plugins.push(
-    new webpack.DefinePlugin(globals)
+  baseConfig.plugins.push(
+    new webpack.DefinePlugin(defs)
+  )
+
+  const config = typeof opts.config === 'function'
+    ? opts.config(baseConfig)
+    : baseConfig
+
+  return config
+}
+
+const start = async (opts = {}) => {
+  const app = new Koa()
+  opts.hotPort = await getPort()
+  const hotClient = {
+    port: opts.hotPort,
+    logLevel: 'error'
+  }
+  const config = createConfig(opts)
+  config.entry.push(
+    path.join(__dirname, './overlay.js'),
   )
 
   const middleware = await koaWebpack({
@@ -140,3 +151,5 @@ const start = async (opts = {}) => {
 }
 
 module.exports = start
+module.exports.config = baseConfig
+module.exports.createConfig = createConfig
