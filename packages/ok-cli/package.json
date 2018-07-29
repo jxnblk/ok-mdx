@@ -1,0 +1,46 @@
+{
+  "name": "ok-cli",
+  "version": "3.0.0-9",
+  "description": "Hyperminimal development server for React & MDX",
+  "main": "index.js",
+  "bin": {
+    "ok": "./cli.js"
+  },
+  "scripts": {
+    "start": "./cli.js docs/hello.mdx",
+    "build": "./cli.js build docs/hello.mdx",
+    "help": "./cli.js",
+    "test": "nyc ava"
+  },
+  "keywords": [],
+  "author": "Brent Jackson",
+  "license": "MIT",
+  "dependencies": {
+    "@mdx-js/loader": "^0.15.0-1",
+    "@mdx-js/mdx": "^0.15.0-1",
+    "ansi-html": "0.0.7",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "chalk": "^2.4.1",
+    "clipboardy": "^1.2.3",
+    "get-port": "^4.0.0",
+    "html-entities": "^1.2.1",
+    "koa": "^2.5.2",
+    "koa-webpack": "^5.1.0",
+    "meow": "^5.0.0",
+    "mini-html-webpack-plugin": "^0.2.3",
+    "progress-bar-webpack-plugin": "^1.11.0",
+    "react": "^16.4.1",
+    "react-dev-utils": "^5.0.1",
+    "react-dom": "^16.4.1",
+    "webpack": "^4.16.3"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "nyc": "^12.0.2",
+    "supertest": "^3.1.0"
+  }
+}
