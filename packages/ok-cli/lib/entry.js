@@ -6,5 +6,4 @@ const App = mod.default
 const { components = {} } = mod
 render(<App components={components} />, window.root)
 
-console.log(mod)
 if (module.hot) module.hot.accept()
