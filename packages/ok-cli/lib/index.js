@@ -52,11 +52,13 @@ const rules = [
 ]
 
 const template = ({
+  title = 'ok',
   js,
   publicPath
 }) => `<!DOCTYPE html>
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}</style>
+<title>${title}</title>
 <div id=root></div>
 ${HTMLPlugin.generateJSReferences(js, publicPath)}
 `
@@ -74,9 +76,6 @@ const baseConfig = {
     ]
   },
   plugins: [
-    new HTMLPlugin({
-      template
-    }),
     new ProgressBarPlugin({
       width: '24',
       complete: '█',
@@ -112,7 +111,8 @@ const createConfig = (opts = {}) => {
   })
 
   baseConfig.plugins.push(
-    new webpack.DefinePlugin(defs)
+    new webpack.DefinePlugin(defs),
+    new HTMLPlugin({ template, context: opts })
   )
 
   const config = typeof opts.config === 'function'
