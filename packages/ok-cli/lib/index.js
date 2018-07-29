@@ -115,10 +115,6 @@ const createConfig = (opts = {}) => {
     new webpack.DefinePlugin(defs)
   )
 
-  baseConfig.module.rules[1].include.push(
-    dirname
-  )
-
   const config = typeof opts.config === 'function'
     ? opts.config(baseConfig)
     : baseConfig
