@@ -86,8 +86,8 @@ const baseConfig = {
         chalk.magenta(':percent'),
         chalk.gray(':elapseds :msg'),
       ].join(' '),
-      // summaryContent: chalk.magenta('[ok] done '),
       summary: false,
+      customSummary: () => {},
     })
   ]
 }
