@@ -134,16 +134,6 @@ const start = async (opts = {}) => {
     path.join(__dirname, './overlay.js'),
   )
 
-  /* might need this...
-  if (baseConfig.resolve.alias) {
-    const hotAlias = baseConfig.resolve.alias['webpack-hot-client/client']
-    if (!fs.existsSync(hotAlias)) {
-      const hotPath = path.dirname(require.resolve('webpack-hot-client/client'))
-      baseConfig.resolve.alias['webpack-hot-client/client'] = hotPath
-    }
-  }
-  */
-
   const middleware = await koaWebpack({
     config,
     devMiddleware,
