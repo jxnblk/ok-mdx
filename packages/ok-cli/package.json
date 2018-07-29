@@ -2,7 +2,7 @@
   "name": "ok-cli",
   "version": "3.0.0-6",
   "description": "Hyperminimal development server for React & MDX",
-  "main": "lib/index.js",
+  "main": "index.js",
   "bin": {
     "ok": "./cli.js"
   },
