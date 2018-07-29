@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 const path = require('path')
 const meow = require('meow')
-const start = require('./lib')
 const open = require('react-dev-utils/openBrowser')
 const clipboard = require('clipboardy')
 const chalk = require('chalk')
+
+const start = require('./lib')
+const build = require('./lib/build')
 
 const log = (...args) => {
   console.log(
@@ -47,6 +49,11 @@ const cli = meow(`
       alias: 'o',
       default: true
     },
+    outDir: {
+      type: 'string',
+      alias: 'd',
+      default: 'dist'
+    },
     help: {
       type: 'boolean',
       alias: 'h'
@@ -58,7 +65,8 @@ const cli = meow(`
   }
 })
 
-const [ entry ] = cli.input
+const [ cmd, file ] = cli.input
+const entry = file || cmd
 
 if (!entry) {
   cli.showHelp(0)
@@ -68,17 +76,34 @@ const opts = Object.assign({
   entry: path.resolve(entry)
 }, cli.flags)
 
-log('starting dev server')
+opts.outDir = path.resolve(opts.outDir)
 
-start(opts)
-  .then(({ port, app, middleware }) => {
-    const url = `http://localhost:${port}`
-    clipboard.write(url)
-    console.log()
-    log('server listening on', chalk.magenta(url))
-    if (opts.open) open(url)
-  })
-  .catch(err => {
-    log.error(err)
-    process.exit(1)
-  })
+
+switch (cmd) {
+  case 'build':
+    log('exporting')
+    build(opts)
+      .then(stats => {
+        log('exported')
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+    break
+  case 'dev':
+  default:
+    log('starting dev server')
+    start(opts)
+      .then(({ port, app, middleware }) => {
+        const url = `http://localhost:${port}`
+        clipboard.write(url)
+        console.log()
+        log('server listening on', chalk.magenta(url))
+        if (opts.open) open(url)
+      })
+      .catch(err => {
+        log.error(err)
+        process.exit(1)
+      })
+}

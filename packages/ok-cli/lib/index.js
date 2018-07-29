@@ -92,15 +92,8 @@ const baseConfig = {
   ]
 }
 
-const start = async (opts = {}) => {
-  const app = new Koa()
+const createConfig = (opts = {}) => {
   const dirname = opts.dirname || path.dirname(opts.entry)
-  const hotPort = await getPort()
-  const hotClient = {
-    port: hotPort,
-    logLevel: 'error'
-  }
-
   baseConfig.context = dirname
 
   baseConfig.resolve.modules.push(
@@ -109,20 +102,39 @@ const start = async (opts = {}) => {
   )
 
   baseConfig.entry = [
-    path.join(__dirname, './overlay.js'),
     path.join(__dirname, './entry.js')
   ]
 
   const defs = Object.assign({}, opts.globals, {
     OPTIONS: JSON.stringify(opts),
     APP_FILENAME: JSON.stringify(opts.entry),
-    HOT_PORT: JSON.stringify(hotPort)
+    HOT_PORT: JSON.stringify(opts.hotPort)
   })
 
   baseConfig.plugins.push(
     new webpack.DefinePlugin(defs)
   )
-  /*
+
+  const config = typeof opts.config === 'function'
+    ? opts.config(baseConfig)
+    : baseConfig
+
+  return config
+}
+
+const start = async (opts = {}) => {
+  const app = new Koa()
+  opts.hotPort = await getPort()
+  const hotClient = {
+    port: opts.hotPort,
+    logLevel: 'error'
+  }
+  const config = createConfig(opts)
+  config.entry.push(
+    path.join(__dirname, './overlay.js'),
+  )
+
+  /* might need this...
   if (baseConfig.resolve.alias) {
     const hotAlias = baseConfig.resolve.alias['webpack-hot-client/client']
     if (!fs.existsSync(hotAlias)) {
@@ -131,10 +143,6 @@ const start = async (opts = {}) => {
     }
   }
   */
-
-  const config = typeof opts.config === 'function'
-    ? opts.config(baseConfig)
-    : baseConfig
 
   const middleware = await koaWebpack({
     config,
@@ -154,3 +162,4 @@ const start = async (opts = {}) => {
 
 module.exports = start
 module.exports.config = baseConfig
+module.exports.createConfig = createConfig

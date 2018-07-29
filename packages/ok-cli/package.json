@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "./cli.js docs/hello.mdx",
+    "build": "./cli.js build docs/hello.mdx",
     "help": "./cli.js",
     "test": "nyc ava"
   },
