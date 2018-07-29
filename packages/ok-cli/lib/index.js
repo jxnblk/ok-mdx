@@ -119,6 +119,14 @@ const createConfig = (opts = {}) => {
     ? opts.config(baseConfig)
     : baseConfig
 
+  if (config.resolve.alias) {
+    const hotAlias = config.resolve.alias['webpack-hot-client/client']
+    if (!fs.existsSync(hotAlias)) {
+      const hotPath = path.dirname(require.resolve('webpack-hot-client/client'))
+      config.resolve.alias['webpack-hot-client/client'] = hotPath
+    }
+  }
+
   return config
 }
 
