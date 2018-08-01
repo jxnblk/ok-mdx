@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const Koa = require('koa')
 const getPort = require('get-port')
 const koaWebpack = require('koa-webpack')
+const koaStatic = require('koa-static')
 const HTMLPlugin = require('mini-html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const chalk = require('chalk')
@@ -92,12 +93,11 @@ const baseConfig = {
 }
 
 const createConfig = (opts = {}) => {
-  const dirname = opts.dirname || path.dirname(opts.entry)
-  baseConfig.context = dirname
+  baseConfig.context = opts.dirname
 
   baseConfig.resolve.modules.push(
-    dirname,
-    path.join(dirname, 'node_modules')
+    opts.dirname,
+    path.join(opts.dirname, 'node_modules')
   )
 
   baseConfig.entry = [
@@ -137,6 +137,7 @@ const start = async (opts = {}) => {
     port: opts.hotPort,
     logLevel: 'error'
   }
+  opts.dirname = opts.dirname || path.dirname(opts.entry)
   const config = createConfig(opts)
   config.entry.push(
     path.join(__dirname, './overlay.js'),
@@ -149,6 +150,7 @@ const start = async (opts = {}) => {
   })
   const port = opts.port || await getPort()
   app.use(middleware)
+  app.use(koaStatic(opts.dirname))
 
   const server = app.listen(port)
   return new Promise((resolve) => {

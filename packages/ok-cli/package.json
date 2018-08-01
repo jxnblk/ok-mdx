@@ -29,6 +29,7 @@
     "get-port": "^4.0.0",
     "html-entities": "^1.2.1",
     "koa": "^2.5.2",
+    "koa-static": "^5.0.0",
     "koa-webpack": "^5.1.0",
     "meow": "^5.0.0",
     "mini-html-webpack-plugin": "^0.2.3",
