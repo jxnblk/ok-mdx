@@ -57,11 +57,18 @@ const template = ({
   js,
   publicPath
 }) => `<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}</style>
 <title>${title}</title>
+</head>
+<body>
 <div id=root></div>
 ${HTMLPlugin.generateJSReferences(js, publicPath)}
+</body>
+</html>
 `
 
 const baseConfig = {
