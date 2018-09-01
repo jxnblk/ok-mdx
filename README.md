@@ -105,11 +105,15 @@ ok-mdx is only meant to be used for development. To export your MDX files, consi
 
 ## Related
 
+- [mdx-go][]
+- [mdx-deck][]
 - [Compositor x0][x0]
 - [Compositor Iso][iso]
 - [MDX][]
 - [CodeSandbox][]
 
+[mdx-go]: https://github.com/jxnblk/mdx-go
+[mdx-deck]: https://github.com/jxnblk/mdx-deck
 [x0]: https://github.com/c8r/x0
 [iso]: https://compositor.io/iso
 [MDX]: https://github.com/mdx-js/mdx
